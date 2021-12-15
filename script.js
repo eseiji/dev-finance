@@ -1,34 +1,23 @@
 const Modal = {
   open() {
-    //Abrir Modal
-    //Adicionar a class active ao Modal
     document.querySelector(".modal-overlay").classList.add("active");
   },
   close() {
-    //Fechar o Modal
-    //Remover a class active do Modal
     document.querySelector(".modal-overlay").classList.remove("active");
   },
 };
 
+const Storage = {
+  get() {
+    return JSON.parse(localStorage.getItem("transactions")) || [];
+  },
+  set(transactions) {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  },
+};
+
 const Transaction = {
-  all: [
-    {
-      description: "Aniversário",
-      amount: -100000,
-      date: "18/12/2021",
-    },
-    {
-      description: "Website",
-      amount: 500000,
-      date: "11/12/2021",
-    },
-    {
-      description: "Internet",
-      amount: -50000,
-      date: "07/12/2021",
-    },
-  ],
+  all: Storage.get(),
   add(transaction) {
     Transaction.all.push(transaction);
     App.reload();
@@ -70,11 +59,7 @@ const DOM = {
 
     DOM.transactionsContainer.appendChild(tr);
   },
-  removeTransaction(event) {
-    console.log(event);
-  },
   innerHTMLTransaction(transaction, index) {
-    //console.log(transaction);
     const CSSclass = transaction.amount > 0 ? "income" : "expense";
     const amount = Utils.formatCurrency(transaction.amount);
     const html = `
@@ -115,15 +100,14 @@ const Utils = {
     return signal + value;
   },
   formatAmount(value) {
-    value = Number(value) * 100;
-    return value;
+    value = value * 100;
+    return Math.round(value);
   },
   formatDate(value) {
     day = value.slice(8);
     month = value.slice(5, 7);
     year = value.slice(0, 4);
     return `${day}/${month}/${year}`;
-    //value = day + "/" + month + "/" + year;
   },
 };
 
@@ -178,9 +162,9 @@ const Form = {
 const App = {
   init() {
     Transaction.all.forEach((item, index) => {
-      //DOM.addTransaction(transactions[item.id-1]);
       DOM.addTransaction(item, index);
-      //DOM.updateBalance(item);
+
+      Storage.set(Transaction.all);
     });
 
     DOM.updateBalance();
