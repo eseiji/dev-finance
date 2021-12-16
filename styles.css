@@ -1,4 +1,4 @@
-/* GLOBAL - MINUTO AULA - 1:57:21 */
+/* GLOBAL */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
 }
 
 html {
-  font-size: 93.75%; /* Mesma coisa que 15px */
+  font-size: 93.75%; /* == 15px */
 }
 
 body {
@@ -73,6 +73,7 @@ header h1#logo {
 }
 
 /*CARDS ===================*/
+
 .cards {
   background: #fff;
   border-radius: 0.25rem;
@@ -101,6 +102,7 @@ header h1#logo {
 }
 
 /*TRANSACTION ===================*/
+
 #transaction {
   width: 100%;
   display: block;
@@ -118,6 +120,7 @@ header h1#logo {
 }
 
 /*TABLE ===================*/
+
 .data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
@@ -198,71 +201,6 @@ td.expense {
   position: relative;
   z-index: 1;
 }
-/*
-#form h2 {
-  font-weight: normal;
-  margin-bottom: 0.7rem;
-}
-
-.input-group .transaction{
-  padding: 0.7rem;
-  border: none;
-  outline: none;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  font-size: 0.9rem;
-  font-weight: normal;
-}
-
-.input-group .transaction::placeholder{
-  font-size: 0.85rem;
-  font-weight: normal;
-}
-
-.input-group input[type=date]{
-  font-size: 1.2rem;
-  font-weight: normal;
-  margin-bottom: 0.7rem;
-}
-
-.div-transaction-buttons{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.button{
-  padding: 0.7rem 4rem 0.7rem 4rem;
-  border-radius: 0.25rem;
-  outline: none;
-  font-size: 0.9rem;
-}
-
-.button.save{
-  border: 1px solid #0f8142;
-  background-color: #0f8142;
-  color: white;
-  transition: all 0.5s ease;
-}
-
-.button.cancel{
-  border: 1px solid #c42121;
-  background-color: #c42121;
-  color: white;
-  transition: all 0.5s ease;
-}
-
-.button.save:hover{
-  background-color: #fff;
-  color: #0f8142;
-  letter-spacing: 0.07rem;
-}
-
-.button.cancel:hover{
-  background-color: #fff;
-  color: #c42121;
-  letter-spacing: 0.07rem;
-}*/
 
 /*FORM ===================*/
 

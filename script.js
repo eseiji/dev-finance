@@ -23,7 +23,6 @@ const Transaction = {
     App.reload();
   },
   remove(index) {
-    console.log(index);
     Transaction.all.splice(index, 1);
     App.reload();
   },
